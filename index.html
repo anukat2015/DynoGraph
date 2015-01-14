@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Graphbench : ">
+    <meta name="description" content="DynoGraph : ">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Graphbench</title>
+    <title>DynoGraph</title>
   </head>
 
   <body>
@@ -16,14 +16,14 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/sirpoovey/graphbench">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/sirpoovey/DynoGraph">View on GitHub</a>
 
-          <h1 id="project_title">Graphbench</h1>
+          <h1 id="project_title">DynoGraph</h1>
           <h2 id="project_tagline"></h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/sirpoovey/graphbench/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/sirpoovey/graphbench/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/sirpoovey/DynoGraph/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/sirpoovey/DynoGraph/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -32,14 +32,14 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a name="graphbench" class="anchor" href="#graphbench"><span class="octicon octicon-link"></span></a>GraphBench</h1>
+<a id="dynograph" class="anchor" href="#dynograph" aria-hidden="true"><span class="octicon octicon-link"></span></a>DynoGraph</h1>
 
 <blockquote>
 <p>(c) 2014 Georgia Tech Research Institute
 Released under GPL v3.0.  See LICENSE for full details</p>
 </blockquote>
 
-<p>GraphBench is a suite of benchmarks centered
+<p>DynoGraph is a suite of benchmarks centered
 around streaming graph analytics. With the prevalence of
 social media and the need to process real-time network graphs,
 streaming dynamic graphs have become a very important application.
@@ -61,7 +61,7 @@ to other benchmark suites.</p>
 </blockquote>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>To build the workloads simply do </p>
 
@@ -79,7 +79,9 @@ to other benchmark suites.</p>
 <code>PGPgiantcompo</code> - PGP trust network</li>
 <li>
 <code>ny_sandy</code> - Twitter feed collected during Hurricane Sandy</li>
-</ul><p>There are <strong>two versions</strong> of each data file, one includes edge or vertex deletions and the other does not.  In an edge list a deletion is noted by a <code>-</code> sign preceding the edge.  If the second value in a deletion is a <code>0</code>, then this represents a vertex deletion.  If the second value is non-zero, then it is a single edge deletion.</p>
+</ul>
+
+<p>There are <strong>two versions</strong> of each data file, one includes edge or vertex deletions and the other does not.  In an edge list a deletion is noted by a <code>-</code> sign preceding the edge.  If the second value in a deletion is a <code>0</code>, then this represents a vertex deletion.  If the second value is non-zero, then it is a single edge deletion.</p>
 
 <p>The first three inputs were collected from the 10th annual DIMACS challenge and repurposed to represent the behavior of dynamic graphs.  Ten percent of the original nodes were duplicated and injected into the permuted edge stream.  At the end of the insertion, these nodes are deleted such that the remaining structure is representative of a streaming graph with insertions and deletions happening simultaneously.</p>
 
@@ -94,7 +96,8 @@ to other benchmark suites.</p>
 <p>Below is a summary of the graph structures and statistics.</p>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th></th>
 <th>Vertices</th>
 <th>Edges</th>
@@ -103,7 +106,8 @@ to other benchmark suites.</p>
 <th>Fragmented Edge Blocks</th>
 <th>Edge Block Fill %</th>
 <th>Avg. Edges per Block</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td><code>PGPgiantcompo</code></td>
@@ -146,10 +150,12 @@ to other benchmark suites.</p>
 <td>1.72</td>
 </tr>
 </tbody>
-</table><p>We do anticipate releasing scripts that allow generation of more versions of each of these input files with different deletion factors, and eventually there will be scripts provided to convert new data sets as GraphBench inputs.</p>
+</table>
+
+<p>We do anticipate releasing scripts that allow generation of more versions of each of these input files with different deletion factors, and eventually there will be scripts provided to convert new data sets as GraphBench inputs.</p>
 
 <h3>
-<a name="test-harness" class="anchor" href="#test-harness"><span class="octicon octicon-link"></span></a>Test Harness</h3>
+<a id="test-harness" class="anchor" href="#test-harness" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test Harness</h3>
 
 <p>An effective benchmark requires a test harness that allows for
 separation of concerns. Setup and initialization should be done
@@ -166,10 +172,10 @@ occur during typical streaming graph ingest.</p>
 <p>To help delineate the test harness, <code>bench_start()</code> and <code>bench_end()</code> functions calls have been placed in the appropriate locations.  The body of these functions can be found in <code>src/lib/hooks.c</code>.</p>
 
 <h2>
-<a name="algorithms" class="anchor" href="#algorithms"><span class="octicon octicon-link"></span></a>Algorithms</h2>
+<a id="algorithms" class="anchor" href="#algorithms" aria-hidden="true"><span class="octicon octicon-link"></span></a>Algorithms</h2>
 
 <h3>
-<a name="bfs" class="anchor" href="#bfs"><span class="octicon octicon-link"></span></a>BFS</h3>
+<a id="bfs" class="anchor" href="#bfs" aria-hidden="true"><span class="octicon octicon-link"></span></a>BFS</h3>
 
 <p>The breadth first search calculates
 the distance of every vertex in the graph from a given
@@ -189,7 +195,7 @@ are read in succession. Each vertex is processed only once and
 each edge block is accessed only once.</p>
 
 <h3>
-<a name="connected-components" class="anchor" href="#connected-components"><span class="octicon octicon-link"></span></a>Connected Components</h3>
+<a id="connected-components" class="anchor" href="#connected-components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connected Components</h3>
 
 <p>Connected components establishes
 a label for each vertex such that vertices with the
@@ -208,7 +214,7 @@ Edge blocks are accessed via a global edge block list for
 maximum parallelism and efficient work distribution.</p>
 
 <h3>
-<a name="pagerank-centrality" class="anchor" href="#pagerank-centrality"><span class="octicon octicon-link"></span></a>PageRank Centrality</h3>
+<a id="pagerank-centrality" class="anchor" href="#pagerank-centrality" aria-hidden="true"><span class="octicon octicon-link"></span></a>PageRank Centrality</h3>
 
 <p>PageRank centrality calculates the likelihood of arriving at a vertex via random walks about
 the graph. It includes a factor that accounts for random jumping
@@ -225,7 +231,7 @@ adjacency list of a vertex are read in succession during each
 iteration.</p>
 
 <h2>
-<a name="characterization" class="anchor" href="#characterization"><span class="octicon octicon-link"></span></a>Characterization</h2>
+<a id="characterization" class="anchor" href="#characterization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Characterization</h2>
 
 <blockquote>
 <p>Upon release of the accompanying paper on the GraphBench characteristics.  The paper summary will be provided here.</p>
@@ -236,7 +242,7 @@ iteration.</p>
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Graphbench maintained by <a href="https://github.com/sirpoovey">sirpoovey</a></p>
+        <p class="copyright">DynoGraph maintained by <a href="https://github.com/sirpoovey">sirpoovey</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
